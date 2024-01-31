@@ -1,9 +1,9 @@
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
-    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
-    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
+    "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
+    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -86,13 +86,6 @@ body {
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
 }
 
 a {
@@ -104,4 +97,117 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+.container {
+  max-width: 100%;
+  margin: 0;
+  padding: 20px;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-around;
+  gap: 10px;
+  justify-content: center;
+}
+
+.thumbnail-container {
+  width: 25vw;
+  height: 25vw;
+  overflow: hidden;
+  position: relative;
+}
+
+.thumbnail {
+  width: 110%;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.84);
+  z-index: 5;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  /* z-index: 999; */
+}
+
+.selected-meme {
+  background-color: #2d2d2d;
+  padding: 20px;
+  border-radius: 5px;
+  height: 40vw;
+  width: 40vw;
+  min-width: 320px;
+  min-height: 320px;
+  /* max-height: 80vh;
+  max-width: 80vw; */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 6;
+}
+
+.meme-image {
+  max-width: 99%;
+  max-height: 99%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.selected-meme-title {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  font-weight: 400;
+  font-size: 25px;
+  color: #eaeaea;
+  width: 100%;
+  text-align: center;
+}
+.left-meme {
+  height: 150px;
+  width: 100px;
+  position: fixed;
+  top: 50%;
+  left: -30%;
+  transform: translate(0%, -50%);
+  z-index: 10;
+  justify-content: right;
+}
+.right-meme {
+  height: 150px;
+  width: 100px;
+  position: fixed;
+  top: 50%;
+  right: -30%;
+  transform: translate(0%, -50%);
+  z-index: 10;
+  justify-content: left;
+}
+
+.left-meme,
+.right-meme {
+  color: rgba(222, 220, 220, 0.701);
+  font-weight: 200;
+  font-size: 80px;
+  display: flex;
+  align-items: center;
+  scale: 1 1.44;
+  cursor: pointer;
+  user-select: none;
 }
